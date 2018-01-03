@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1>*ngIf</h1>
+    <hr>
+    <!--utiliza el evento click para poder modificar el valor de la variable mostrar que está en el
+      archivo body.componen.ts-->
+    <button type="button" class="btn btn-outline-primary btn-block" (click) = "mostrar = !mostrar">
+      Mostrar/Ocultar
+    </button>
+    <br>
+    <!--El nfIf funciona con la variable mostrar que definimos en el body.component.ts-->
+    <div *ngIf="mostrar" class="card text-white bg-primary mb-3" style="max-width: 100%;">
+      <div class="card-header">Frase</div>
+      <div class="card-body">
+        <h5 class="card-title">{{frase.mensaje}}</h5>
+        <p class="card-text">{{frase.autor}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <h1>*ngFor</h1>
+    <hr>
+    <ul class="list-group">
+      <!--Se le pone en el For el nombre de como quieres la variable a mostrar y de que lista lo tomara, que en
+        este caso será del vector personajes que está en body.component.ts
+      Para poder enumerar la lista se usa el index-->
+      <li *ngFor="let personaje of personajes; let i = index" class="list-group-item">
+        <!--Aqui se pone lo que se quiere repetir, solo se repetirá el numero de veces necesarias para recorrer
+          todo el vector
+        Se le pone i+1 porque el index de los arreglos empieza en 0-->
+        {{i + 1}}. {{personaje}}
+      </li>
+    </ul>
+  </div>
+</div>
